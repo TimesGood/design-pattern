@@ -1,4 +1,4 @@
-package com.zhangwenke.design_pattern.composite.demo2;
+package com.zhangwenke.design_pattern.composite.demo;
 
 import javax.swing.*;
 import javax.swing.border.Border;
