@@ -9,6 +9,7 @@ import com.zhangwenke.design_pattern.adater.DC5Target;
  * 缺点：
  *  类适配器有一个很明显的缺点，就是违背了合成复用原则。
  *  结合上面的例子，假如我不是220V的电压了，是380V电压呢？那就要多建一个380V电压的适配器了
+ * 为满足手机5V充电的电压，我们继承220V电压并实现手机5V电压接口，把220V电压适配为5V电压
  */
 public class ClassPowerAdapter extends AC220Adaptee implements DC5Target {
 

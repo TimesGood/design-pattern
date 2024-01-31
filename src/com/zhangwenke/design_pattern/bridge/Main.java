@@ -1,9 +1,11 @@
 package com.zhangwenke.design_pattern.bridge;
 
-import com.zhangwenke.design_pattern.bridge.system.Ios;
-import com.zhangwenke.design_pattern.bridge.system.Windows;
-import com.zhangwenke.design_pattern.bridge.video.Mp4;
-import com.zhangwenke.design_pattern.bridge.video.Rmvb;
+import com.zhangwenke.design_pattern.bridge.devices.Device;
+import com.zhangwenke.design_pattern.bridge.devices.Radio;
+import com.zhangwenke.design_pattern.bridge.devices.Tv;
+import com.zhangwenke.design_pattern.bridge.remotes.AdvancedRemote;
+import com.zhangwenke.design_pattern.bridge.remotes.BasicRemote;
+
 
 /**
  * 桥接模式
@@ -29,9 +31,20 @@ import com.zhangwenke.design_pattern.bridge.video.Rmvb;
  */
 public class Main {
     public static void main(String[] args) {
-        Ios ios = new Ios(new Rmvb());
-        ios.play("xxx.rmvb");
-        Windows windows = new Windows(new Mp4());
-        windows.play("xxx.mp4");
+        testDevice(new Tv());
+        testDevice(new Radio());
+    }
+
+    public static void testDevice(Device device) {
+        System.out.println("基础遥控器测试");
+        BasicRemote basicRemote = new BasicRemote(device);
+        basicRemote.power();
+        device.printStatus();
+
+        System.out.println("高级遥控器测试");
+        AdvancedRemote advancedRemote = new AdvancedRemote(device);
+        advancedRemote.power();
+        advancedRemote.mute();
+        device.printStatus();
     }
 }

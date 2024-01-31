@@ -1,5 +1,9 @@
 package com.zhangwenke.design_pattern.facade;
 
+/**
+ * 外观模式
+ * 把一系列比较复杂的操作整合到一起，提供比较简单的接口给外部进行访问
+ */
 public class SmarSpeaker {
     private Fan fan;
     private Light light;

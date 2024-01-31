@@ -1,8 +1,10 @@
 package com.zhangwenke.design_pattern.builder;
 
-import com.zhangwenke.design_pattern.builder.conventional.AsusComputerbuilder;
-import com.zhangwenke.design_pattern.builder.conventional.ComputerDirector;
-import com.zhangwenke.design_pattern.builder.linked.SimpleComputerbuilder;
+import com.zhangwenke.design_pattern.builder.builder.CarBuilder;
+import com.zhangwenke.design_pattern.builder.builder.CarManualBuilder;
+import com.zhangwenke.design_pattern.builder.director.Director;
+import com.zhangwenke.design_pattern.builder.product.Car;
+import com.zhangwenke.design_pattern.builder.product.Manual;
 
 /**
  * 建造者模式：
@@ -26,26 +28,19 @@ import com.zhangwenke.design_pattern.builder.linked.SimpleComputerbuilder;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("常规：");
-        System.out.println(excuseConventional());
-        System.out.println("链式调用：");
-        System.out.println(excuseLink());
+        Director director = new Director();
+
+        CarBuilder builder = new CarBuilder();
+        director.constructSUV(builder);
+
+        Car car = builder.getResult();
+        System.out.println("构建汽车:\n" + car.getCarType());
+
+        CarManualBuilder manualBuilder = new CarManualBuilder();
+
+        director.constructSportsCar(manualBuilder);
+        Manual carManual = manualBuilder.getResult();
+        System.out.println("\n构建汽车手册:\n" + carManual.print());
     }
 
-    public static Computer excuseConventional(){
-        ComputerDirector director = new ComputerDirector(new AsusComputerbuilder());
-        return director.construct();
-    }
-    public static Computer excuseLink(){
-        SimpleComputerbuilder builder = new SimpleComputerbuilder();
-        builder.builderMotherboard("Extreme主板");
-        builder.builderCpu("Inter 12400k");
-        builder.builderMemory("三星 16G*2");
-        builder.builderDisk("三星980pro 2T");
-        builder.builderGpu("铭瑄3070终结者");
-        builder.builderPower("黑钻1000W");
-        builder.builderHeatSink("随便风冷");
-        builder.builderChassis("随便机箱");
-        return builder.builder();
-    }
 }

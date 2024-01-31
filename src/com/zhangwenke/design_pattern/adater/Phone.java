@@ -2,6 +2,9 @@ package com.zhangwenke.design_pattern.adater;
 
 import com.zhangwenke.design_pattern.adater.interface_adapter.DCTarget;
 
+/**
+ * 手机，这是我们要使用的产品
+ */
 public class Phone {
     public void charging(DC5Target target) {
         if (target.output5() == 5) {

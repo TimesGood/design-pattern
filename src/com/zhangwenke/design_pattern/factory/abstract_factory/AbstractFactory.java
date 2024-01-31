@@ -1,6 +1,7 @@
 package com.zhangwenke.design_pattern.factory.abstract_factory;
 
-import com.zhangwenke.design_pattern.factory.IPhone;
+import com.zhangwenke.design_pattern.factory.product.phone.IPhone;
+import com.zhangwenke.design_pattern.factory.product.wath.IWatch;
 
 /**
  * 抽象工厂
@@ -11,5 +12,6 @@ import com.zhangwenke.design_pattern.factory.IPhone;
  *  -具体产品（ConcreteProduct）：实现了抽象产品角色所定义的接口，由具体工厂来创建，它同具体工厂之间是多对一的关系。
  */
 public interface AbstractFactory {
-    IPhone create();
+    IPhone createPhone();
+    IWatch createWatch();
 }

@@ -2,6 +2,7 @@ package com.zhangwenke.design_pattern.decorator;
 
 /**
  * 定义一个炸鸡接口的装饰器，对制作炸鸡方法进行一个增强
+ * 并且该装饰器还可以给其他装饰器作为基底再做装饰
  */
 public class FriedChickenDecorator implements FriedChicken{
     //内部维护一个炸鸡类
