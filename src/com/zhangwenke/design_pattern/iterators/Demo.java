@@ -29,7 +29,7 @@ public class Demo {
     }
 
     public static List<Profile> createTestProfiles() {
-        List<Profile> data = new ArrayList<Profile>();
+        List<Profile> data = new ArrayList<>();
         data.add(new Profile("anna.smith@bing.com", "Anna Smith", "friends:mad_max@ya.com", "friends:catwoman@yahoo.com", "coworkers:sam@amazon.com"));
         data.add(new Profile("mad_max@ya.com", "Maximilian", "friends:anna.smith@bing.com", "coworkers:sam@amazon.com"));
         data.add(new Profile("bill@microsoft.eu", "Billie", "coworkers:avanger@ukr.net"));
